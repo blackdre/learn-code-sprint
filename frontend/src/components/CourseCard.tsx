@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import { Book, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface CourseCardProps {
   course: {
@@ -17,6 +18,7 @@ interface CourseCardProps {
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+  const navigate = useNavigate();
   const progress = Math.round((course.completedQuestions / course.totalQuestions) * 100);
   
   const getDifficultyColor = (difficulty: string) => {
@@ -30,6 +32,10 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
       default:
         return 'bg-gray-500';
     }
+  };
+
+  const handleStartCourse = () => {
+    navigate(`/course/${course.id}`);
   };
 
   return (
@@ -56,7 +62,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         </div>
       </CardContent>
       <CardFooter className="pt-2">
-        <Button variant="ghost" className="w-full justify-between">
+        <Button variant="ghost" className="w-full justify-between" onClick={handleStartCourse}>
           Start Course <ArrowRight className="h-4 w-4" />
         </Button>
       </CardFooter>
