@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import CourseCard from '@/components/CourseCard';
 import QuizQuestion from '@/components/QuizQuestion';
-import { courses, questions, getCurrentQuestion } from '@/data/quizData';
+import { questions, getCurrentQuestion } from '@/data/quizData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useCourses } from '@/contexts/CoursesContext';
 
 const Index = () => {
+  const {courses} = useCourses();
   const [completedQuestionIds, setCompletedQuestionIds] = useState<string[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   

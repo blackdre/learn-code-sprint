@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { courses } from '@/data/quizData';
+// import { courses } from '@/data/quizData';
 import CourseCard from '@/components/CourseCard';
 import { Search, Filter } from 'lucide-react';
 import { 
@@ -13,8 +13,10 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select';
+import { useCourses } from '@/contexts/CoursesContext';
 
 const Courses = () => {
+  const { courses } = useCourses(); 
   const [searchQuery, setSearchQuery] = useState('');
   const [difficultyFilter, setDifficultyFilter] = useState<string>('all');
   
