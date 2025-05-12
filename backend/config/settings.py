@@ -44,6 +44,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'courses.apps.CoursesConfig',
     'challenges.apps.ChallengesConfig',
+    'questions.apps.QuestionsConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
